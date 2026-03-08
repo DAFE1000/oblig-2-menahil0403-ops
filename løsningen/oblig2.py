@@ -1,4 +1,8 @@
 import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+
 
 #funksjonen f
 def f(x):
@@ -26,3 +30,23 @@ y = f(x)
 
 print("x = ", round(x,4))
 print("y = ", round(y,4))
+
+#plotter graffen 
+x_vals = np.linspace(0,4,400)
+y_vals = [f(val) for val in x_vals]
+
+# plotter funksjonen
+plt.plot(x_vals, y_vals, label="f(x) = e^(-x/4) * arctan(x)")
+
+# marker toppunktet
+plt.scatter(x, y)
+plt.text(x, y, "  Toppunkt")
+
+plt.xlabel("x")
+plt.ylabel("f(x)")
+plt.title("Graf av funksjonen")
+plt.grid()
+plt.legend()
+
+plt.savefig("graf.png")
+plt.show()
